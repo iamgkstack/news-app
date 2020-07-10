@@ -7,8 +7,8 @@ const config = {};
   Base configurations
  */
 fs.readdirSync(__dirname)
-  .filter(f => !f.includes('index.js') && !f.includes('env'))
-  .forEach(filename => {
+  .filter((f) => !f.includes('index.js') && !f.includes('env'))
+  .forEach((filename) => {
     // eslint-disable-next-line
     Object.assign(config, require(`./${filename}`));
   });
@@ -20,7 +20,7 @@ const envDir = `${__dirname}/env`;
 const isEnvExisting = fs.existsSync(envDir);
 
 if (isEnvExisting) {
-  fs.readdirSync(envDir).forEach(filename => {
+  fs.readdirSync(envDir).forEach((filename) => {
     const basename = filename.split('.')[0];
 
     if (env === basename) {

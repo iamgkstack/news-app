@@ -35,5 +35,5 @@ module.exports.cors = {
    */
   origin: '*',
 
-  maxAge: 600
+  maxAge: 600,
 };

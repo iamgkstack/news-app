@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import './index.css';
 class Search extends Component {
   componentDidMount() {
     if (this.input) {
@@ -15,17 +17,19 @@ class Search extends Component {
     } = this.props;
 
     return (
-      <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={value}
-          onChange={onChange}
-          ref={el => this.input = el}
-        />
-        <button type="submit">
-          {children}
-        </button>
-      </form>
+      <div className="form">
+        <form onSubmit={onSubmit}>
+          <input
+            type="text"
+            value={value}
+            onChange={onChange}
+            ref={el => this.input = el}
+          />
+          <button type="submit">
+            {children}
+          </button>
+        </form>
+      </div>
     );
   }
 }

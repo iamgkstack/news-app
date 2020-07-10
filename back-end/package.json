@@ -10,7 +10,7 @@
     "start": "node server.js",
     "lint": "eslint src test",
     "lint:fix": "eslint --fix src test",
-    "test": "yarn lint && NODE_ENV=test && mocha"
+    "test": "npm run lint && NODE_ENV=test && mocha"
   },
   "keywords": [
     "NodeJs",

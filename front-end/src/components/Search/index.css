@@ -1,0 +1,24 @@
+.form{
+    margin: 20px;
+}
+
+.form input {
+    box-shadow: 0px 6px 15px -6px #777;
+    border-radius: 5px;
+    margin: 0 0px 20px 0;
+    border: 1px solid #e3e3e3;
+    height: 40px;
+    width: 25%;
+}
+
+.form button {
+    margin-left: 10px;
+    box-shadow: 0px 6px 15px -6px #777;
+    border-width: 0;
+    border-radius: 5px;
+    background: transparent;
+    color: inherit;
+    text-align: inherit;
+    cursor: pointer;
+    height: 40px;
+}

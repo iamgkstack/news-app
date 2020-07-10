@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
 
+import './index.css';
+
 import Card from '../Card';
 import Search from '../Search';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      results: null,
-      searchKey: '',
-      searchTerm: 'a',
-      error: null
-    }
-
-    this.needsToSearchTopstories = this.needsToSearchTopstories.bind(this);
-    this.setSearchTopstories = this.setSearchTopstories.bind(this);
-    this.fetchSearchTopstories = this.fetchSearchTopstories.bind(this);
-    this.onSearchChange = this.onSearchChange.bind(this);
-    this.onSearchSubmit = this.onSearchSubmit.bind(this);
+  state = {
+    results: null,
+    searchKey: '',
+    searchTerm: 'a',
+    error: null
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     const { searchTerm } = this.state;
     this.setState({ searchKey: searchTerm });
     this.fetchSearchTopstories(searchTerm);
   }
 
-  setSearchTopstories(result) {
+  setSearchTopstories = (result) => {
     const { articles } = result;
     const { searchKey, results } = this.state;
 
@@ -43,29 +36,29 @@ class App extends Component {
     this.setState({
       results: {
         ...results,
-        [searchKey]: { articles: updatedArticles}
+        [searchKey]: { articles: updatedArticles }
       }
     });
   }
 
-  fetchSearchTopstories(searchTerm) {
+  fetchSearchTopstories = (searchTerm) => {
     fetch(`http://localhost:5200/api/v1/news?query=${searchTerm}`)
       .then(response => response.json())
-      .then(result => 
+      .then(result =>
         this.setSearchTopstories(result)
       )
       .catch(e => this.setState({ error: e }));
   }
 
-  needsToSearchTopstories(searchTerm) {
+  needsToSearchTopstories = (searchTerm) => {
     return !this.state.results[searchTerm];
   }
 
-  onSearchChange(event) {
+  onSearchChange = (event) => {
     this.setState({ searchTerm: event.target.value });
   }
 
-  onSearchSubmit(event) {
+  onSearchSubmit = (event) => {
     const { searchTerm } = this.state;
     this.setState({ searchKey: searchTerm });
 
@@ -89,6 +82,7 @@ class App extends Component {
       results[searchKey] &&
       results[searchKey].articles
     ) || [];
+
     return (
       <div className="container">
         <Search
@@ -98,16 +92,16 @@ class App extends Component {
         >
           Filter
         </Search>
-        {error ? 
+        {error ?
           <div className="interactions">
             <p>Something went wrong.</p>
-          </div>:
-        <div>
-          <Card result={list}/>
-        </div>
-      }
+          </div> :
+          <div>
+            <Card result={list} />
+          </div>
+        }
       </div>
-      
+
     )
   }
 }

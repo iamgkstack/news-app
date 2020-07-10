@@ -1,4 +1,4 @@
-module.exports = res => data => {
+module.exports = (res) => (data) => {
   let statusCode = 500;
   const body = data;
 
