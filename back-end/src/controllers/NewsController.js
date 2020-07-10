@@ -10,6 +10,9 @@ module.exports = {
     if (query) defaultQuery = query;
 
     const { apiKey } = config;
+    if (!apiKey) {
+      return res.unAuthorized('please provide the api key');
+    }
     const newsApi = new NewsAPI(apiKey);
 
     try {
