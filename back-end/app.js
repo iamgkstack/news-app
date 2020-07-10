@@ -48,7 +48,7 @@ app.use((error, req, res) => {
   res.status(error.status || 500);
   res.json({
     message: "Oops! Couldn't perform this action at the moment. Please try again",
-    error
+    error,
   });
 });
 
@@ -57,13 +57,13 @@ app.use((error, req, res) => {
  */
 const server = http.createServer(app);
 
-const isTest = process.env.NODE_ENV === 'test';
-const isProduction = process.env.NODE_ENV === 'production';
+// const isTest = process.env.NODE_ENV === 'test';
+// const isProduction = process.env.NODE_ENV === 'production';
 
 /**
  * Bind onError and onListening handler
  */
-server.on('error', error => {
+server.on('error', (error) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
@@ -96,7 +96,6 @@ function start(done) {
    * Listen on provided port, on all network interfaces.
    */
   server.listen(port, done);
-  
 }
 
 function lower(done) {
@@ -106,5 +105,5 @@ function lower(done) {
 module.exports = {
   lower,
   start,
-  default: app
+  default: app,
 };

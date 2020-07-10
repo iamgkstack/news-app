@@ -1,14 +1,13 @@
 const express = require('express');
 const health = require('./health');
-const product = require('./product');
-const offers = require('./offer');
+const news = require('./news');
 
 const supportedMethods = ['get', 'post', 'put', 'delete'];
 
 const configureRouter = (app, routes = []) => {
   const { prefix } = config;
   const router = express.Router();
-  routes.forEach(route => {
+  routes.forEach((route) => {
     const method = route.method.toLowerCase();
     const policies = route.policies || [];
     const version = route.version || 'v1';
@@ -16,7 +15,7 @@ const configureRouter = (app, routes = []) => {
     /* Check if method is supported */
     if (!supportedMethods.includes(method)) {
       throw new Error({
-        message: `Method ${method} is not supported`
+        message: `Method ${method} is not supported`,
       });
     }
 
@@ -26,8 +25,7 @@ const configureRouter = (app, routes = []) => {
   });
 };
 
-module.exports = app => {
+module.exports = (app) => {
   configureRouter(app, health);
-  configureRouter(app, product);
-  configureRouter(app, offers);
+  configureRouter(app, news);
 };
