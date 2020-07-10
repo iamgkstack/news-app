@@ -37,6 +37,7 @@ curl -X GET http://localhost:5200/api/v1/news
 
 ```bash
 # go to front-end directory avialable in root folder(news-app )
+cd front-end
 
 # install the dependencies
 npm i
