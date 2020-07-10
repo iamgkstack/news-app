@@ -27,7 +27,7 @@ npm test
 
 ## APIs availabe
 
-Fetch all the available products
+Fetch all the latest news from UK
 
 ```curl
 curl -X GET http://localhost:5200/api/v1/news
