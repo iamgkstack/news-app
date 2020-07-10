@@ -8,4 +8,4 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 EXPOSE ${PORT}
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
