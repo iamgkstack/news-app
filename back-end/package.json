@@ -1,0 +1,43 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "The simple web app for display news using news api. Written in Node",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "lint": "eslint src test",
+    "lint:fix": "eslint --fix src test",
+    "test": "yarn lint && NODE_ENV=test && mocha"
+  },
+  "keywords": [
+    "NodeJs",
+    "Express",
+    "NewsAPI"
+  ],
+  "author": "Gaurav Kumar <gauravkumar5295@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "async": "^3.2.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "glo": "^2.0.0",
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5",
+    "sinon": "^9.0.2",
+    "supertest": "^4.0.2"
+  }
+}
